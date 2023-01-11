@@ -17,3 +17,12 @@ maxSequence = (arr) => {
 
 console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
 //should be 6: [4, -1, 2, 1]
+
+// other solution with reduce method
+var maxSequence = function(arr){
+  var currentSum = 0;
+  return arr.reduce(function(maxSum, number){
+      currentSum = Math.max(currentSum+number, 0);
+      return Math.max(currentSum, maxSum);
+  }, 0);
+}
